@@ -36,3 +36,27 @@ INSERT INTO player(NAME, position, team_id, is_outer, createdAt) VALUES('홍길�
 INSERT INTO player(NAME, position, team_id, is_outer, createdAt) VALUES('장보고', '투수', 3, 0,NOW());
 COMMIT;
 ```
+
+### 기술 스택
+```
+- 스프링부트
+- JSP
+- STS툴
+- html/css/javascript
+- MariaDB
+```
+
+### 의존성
+```
+- SpringWeb
+- Lombok
+- MariaDB Connector
+- DevTools
+- Tomcat Jasper, JSTL
+- MyBatis (rs->javaobject) => Mapper
+```
+
+
+
+
+
