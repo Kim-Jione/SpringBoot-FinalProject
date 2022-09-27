@@ -14,7 +14,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @Configuration
 @MapperScan(basePackages = "site.metacoding.finalproject.domain")
 public class MyBatisConfig {
-	@Bean
+    @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();

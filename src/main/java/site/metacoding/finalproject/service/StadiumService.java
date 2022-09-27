@@ -17,7 +17,7 @@ public class StadiumService {
 	// DI
 	private final StadiumDao stadiumDao;
 
-	public List<Stadium> 목록보기(){
+	public List<Stadium> 경기장목록보기(){
 		return stadiumDao.findAll();
 	}
 	// Controller는 DTO로 받고 - 유효성 검사, DAO는 Entity로 넘기자 (Insert, Update) - 유효성 검사 X
