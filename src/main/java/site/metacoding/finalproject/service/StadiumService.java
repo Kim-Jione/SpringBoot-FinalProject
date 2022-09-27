@@ -21,7 +21,7 @@ public class StadiumService {
 		return stadiumDao.findAll();
 	}
 	// Controller는 DTO로 받고 - 유효성 검사, DAO는 Entity로 넘기자 (Insert, Update) - 유효성 검사 X
-	public void 경기장등록(StadiumInsertReqDto stadiumInsertReqDto) { //Dto로 받는 이유는 엔티티로 받을 때 유효성 체크가 힘들어서 Dto로 받는 것이다. Dao한테 넘길 때는 엔티티를 넘겨 주면 된다. 앞에서 밸리데이션 체크 받을것이기 때문
+	public void 경기장등록하기(StadiumInsertReqDto stadiumInsertReqDto) { //Dto로 받는 이유는 엔티티로 받을 때 유효성 체크가 힘들어서 Dto로 받는 것이다. Dao한테 넘길 때는 엔티티를 넘겨 주면 된다. 앞에서 밸리데이션 체크 받을것이기 때문
 		stadiumDao.insert(stadiumInsertReqDto.toEntity());
 	}
 }

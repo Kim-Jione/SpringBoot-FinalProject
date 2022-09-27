@@ -35,7 +35,7 @@ public class StadiumController {
 
 	@PostMapping("/stadium")
 	public @ResponseBody CMRespDto<?> insert(@RequestBody StadiumInsertReqDto stadiumInsertReqDto) {
-		stadiumService.경기장등록(stadiumInsertReqDto);
+		stadiumService.경기장등록하기(stadiumInsertReqDto);
 		return new CMRespDto<>(1, "경기장등록성공", null);
 	}
 }
