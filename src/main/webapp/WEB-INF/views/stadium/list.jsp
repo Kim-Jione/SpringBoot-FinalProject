@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../layout/header.jsp"%>
-
 <div class="container">
 	<br />
 
@@ -9,16 +9,20 @@
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>칼럼1</th>
-				<th>칼럼2</th>
+				<th>경기장이름</th>
+				<th>개장일</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>내용1</td>
-				<td>내용2</td>
-			</tr>
+			<c:forEach var="stadium" items="${stadiumList}">
+				<tr>
+					<td>${stadium.no}</td>
+					<td>${stadium.name}</td>
+					<td>${stadium.createdAt}</td>
+					<td><button class="btn btn-danger">삭제</button></td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 </div>
