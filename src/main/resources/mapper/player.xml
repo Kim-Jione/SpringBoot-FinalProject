@@ -18,10 +18,8 @@
 		INNER JOIN team t
 		ON p.team_id = t.id
 	</select>
-
-	<select id="findById"
-		resultType="site.metacoding.finalproject.domain.player.Player">
-
+	
+	<select id="findPositionByTeam" resultType="hashmap">
 	</select>
 
 	<insert id="update">

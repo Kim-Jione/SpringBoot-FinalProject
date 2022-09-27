@@ -5,19 +5,16 @@
 <div class="container">
 	<form>
 		<div class="mb-3 mt-3">
-			<select id="teamId" class="form-control">
-				<c:forEach var="team" items="${teamList}">
-					<option value="${team.id}">${team.name}</option>
+			<select id="stadiumId" class="form-control">
+				<c:forEach var="stadium" items="${stadiumList}">
+					<option value="${stadium.id}">${stadium.name}</option>
 				</c:forEach>
 			</select>
 		</div>
 		<div class="mb-3 mt-3">
-			<input id="name" type="text" class="form-control" placeholder="Enter name">
+			<input id="name" type="text" class="form-control" placeholder="Enter teamName">
 		</div>
-		<div class="mb-3 mt-3">
-			<input id="position" type="text" class="form-control" placeholder="Enter position">
-		</div>
-		<button id="btnInsert" type="button" class="btn btn-primary">선수등록완료</button>
+		<button id="btnInsert" type="button" class="btn btn-primary">팀등록완료</button>
 	</form>
 </div>
 
@@ -29,10 +26,9 @@
 	function insert(){
 		let data = {
 				name: $("#name").val(),
-				position: $("#position").val(),
-				teamId: $("#teamId").val()
+				stadiumId: $("#stadiumId").val()
 		}
-		$.ajax("/player",{
+		$.ajax("/team",{
 			type: "POST",
 			dataType: "json",
 			data: JSON.stringify(data), // http body에 들고갈 요청 데이터
@@ -41,9 +37,9 @@
 			}
 		}).done((res)=>{
 			if(res.code == 1){ // 성공
-				location.href="/player";
+				location.href="/team";
 			}else{ // 실패
-				alert("선수등록에 실패하였습니다.");
+				alert("팀등록에 실패하였습니다.");
 			}
 		});
 	}

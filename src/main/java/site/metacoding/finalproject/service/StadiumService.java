@@ -17,6 +17,10 @@ public class StadiumService {
 	// DI
 	private final StadiumDao stadiumDao;
 
+	public void 경기장삭제하기(Integer id) {
+		stadiumDao.deleteById(id);
+	}
+	
 	public List<Stadium> 경기장목록보기(){
 		return stadiumDao.findAll();
 	}
