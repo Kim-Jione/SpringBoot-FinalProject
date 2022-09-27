@@ -21,20 +21,20 @@ public class StadiumController {
 
 	private final StadiumService stadiumService;
 
-	@GetMapping("/stadium")
+	@GetMapping({ "/", "/stadium" })
 	public String list(Model model) {
 		List<Stadium> stadiumList = stadiumService.목록보기();
 		model.addAttribute("stadiumList", stadiumList);
 		return "stadium/list";
 	}
-	
+
 	@GetMapping("/stadiumForm")
 	public String stadiumForm() {
 		return "stadium/saveForm";
 	}
-	
+
 	@PostMapping("/stadium")
-	public @ResponseBody CMRespDto<?> insert(@RequestBody StadiumInsertReqDto stadiumInsertReqDto){
+	public @ResponseBody CMRespDto<?> insert(@RequestBody StadiumInsertReqDto stadiumInsertReqDto) {
 		stadiumService.경기장등록(stadiumInsertReqDto);
 		return new CMRespDto<>(1, "경기장등록성공", null);
 	}
