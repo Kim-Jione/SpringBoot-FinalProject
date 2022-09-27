@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.finalproject.domain.player.Player;
+import site.metacoding.finalproject.domain.team.Team;
 import site.metacoding.finalproject.service.PlayerService;
+import site.metacoding.finalproject.service.TeamService;
 import site.metacoding.finalproject.web.dto.CMRespDto;
 import site.metacoding.finalproject.web.dto.player.PlayerInsertReqDto;
 
@@ -20,6 +22,7 @@ import site.metacoding.finalproject.web.dto.player.PlayerInsertReqDto;
 public class PlayerController {
 	
 	private final PlayerService playerService;
+	private final TeamService teamService;
 	
 	@GetMapping("/player")
 	public String list(Model model) {
@@ -30,7 +33,14 @@ public class PlayerController {
 	
 	@GetMapping("/playerForm")
 	public String playerForm(Model model) {
+		List<Team> teamList = teamService.팀목록보기();
+		model.addAttribute("teamList", teamList);
 		return "player/saveForm";
 	}
 	
+	@PostMapping("/player")
+	public @ResponseBody CMRespDto<?> insert(@RequestBody PlayerInsertReqDto playerInsertReqDto){
+		playerService.선수등록하기(playerInsertReqDto);
+		return new CMRespDto<>(1, "선수등록성공", null);
+	}
 }

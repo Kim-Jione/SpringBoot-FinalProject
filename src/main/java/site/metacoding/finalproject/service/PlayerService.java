@@ -13,12 +13,14 @@ import site.metacoding.finalproject.web.dto.player.PlayerInsertReqDto;
 @RequiredArgsConstructor
 @Service
 public class PlayerService {
-
+	
 	private final PlayerDao playerDao;
 
 	public List<Player> 선수목록보기(){
 		return playerDao.findAll();
 	}
-
-
+	
+	public void 선수등록하기(PlayerInsertReqDto playerInertReqDto) {
+		playerDao.insert(playerInertReqDto.toEntity());
+	}
 }
